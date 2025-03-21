@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_2.xsd"
+             version="3.2">
+    <persistence-unit name="DB">
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+<class>com.example.exam2024.Entity.Employe</class>
+        <class>com.example.exam2024.Entity.Affectation</class>
+        <class>com.example.exam2024.Entity.Project</class>
+
+        <properties>
+            <!-- Connexion à la base de données -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/jpakhalid"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
+
+            <!-- Configuration de la création des tables (peut être changé selon les besoins) -->
+<!--                        <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+            <property name="eclipselink.ddl-generation" value="update"/>
+            <property name="eclipselink.ddl-generation.output-mode" value="database"/>
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <property name="eclipselink.logging.level.sql" value="FINE"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>
+

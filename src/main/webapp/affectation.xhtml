@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+>
+<h:head>
+    <title>Affectation des Employés</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:link value="Retour à l'accueil" outcome="Emplyee" />
+        <h:commandButton value="back/home" action="Emplyee.xhtml"/>
+    </h:form>
+    <h:form>
+        <h2>Affectation des Employés</h2>
+x
+        <!-- Liste déroulante pour choisir un employé -->
+        <h:outputLabel for="employe" value="Employé : " />
+        <h:selectOneMenu id="employe" value="#{affectationBean.employeId}">
+            <f:selectItems value="#{EmployerBean.employes}" var="emp"
+                           itemValue="#{emp.id}" itemLabel="#{emp.name}" />
+        </h:selectOneMenu>
+
+
+        <br/><br/>
+
+        <!-- Liste déroulante pour choisir un projet -->
+        <h:outputLabel for="projet" value="Projet : " />
+        <h:selectOneMenu id="projet" value="#{affectationBean.projectId}">
+            <f:selectItems value="#{projectBean.projects}" var="proj"
+                           itemValue="#{proj.id}" itemLabel="#{proj.name}" />
+        </h:selectOneMenu>
+
+
+        <br/><br/>
+
+        <!-- Champ pour saisir le pourcentage d'implication -->
+        <h:outputLabel for="implication" value="Implication (%): " />
+        <h:inputText id="implication" value="#{affectationBean.affectation.implication}" />
+
+        <br/><br/>
+
+        <!-- Bouton pour affecter le projet -->
+        <h:commandButton value="Affecter" action="#{affectationBean.ajouterAffectation}" />
+    </h:form>
+</h:body>
+</html>
